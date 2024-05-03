@@ -5,6 +5,9 @@
 #include <assert.h>
 #include <stdbool.h>
 
+
+pthread_mutex_t mutex_hashmap;
+
 int windowsx = 0;
 int windowsy = 0;
 
@@ -54,10 +57,12 @@ void *draw2SDL(void *arg) {
 
   // ADD Your code HERE
   /* Protéger l'accès à la hashmap */
+  pthread_mutex_lock(&mutex_hashmap);
 
   HASH_FIND_INT(theorastrstate, &serial, s);
 
   // END of your modification HERE
+  pthread_mutex_unlock(&mutex_hashmap);
 
   assert(s->strtype == TYPE_THEORA);
 

@@ -7,6 +7,7 @@
 #include <theora/theora.h>
 #include <theora/theoradec.h>
 #include <vorbis/codec.h>
+#include <pthread.h>
 
 enum streamtype { TYPE_UNKNOW, TYPE_THEORA, TYPE_VORBIS };
 
@@ -36,5 +37,8 @@ struct streamstate {
   struct vorbis_decode vo_dec;
   UT_hash_handle hh;
 };
+
+extern pthread_mutex_t mutex_hashmap;
+
 
 #endif

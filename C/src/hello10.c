@@ -52,7 +52,7 @@ int main() {
     for (int i=0;i<10;i++){
         pthread_create(&lesThreadsID[i], NULL, increment, &moniteur);
     }
-
+    
     pthread_join(lesThreadsID[10], NULL);
 
 
