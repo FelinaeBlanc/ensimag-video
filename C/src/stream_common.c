@@ -5,8 +5,10 @@
 #include <assert.h>
 #include <time.h>
 
+#include "ensivideo.h"
+
+
 bool fini = false;
-pthread_mutex_t mutex_hashmap;
 
 pthread_t thread_theora2sdl;
 struct timespec datedebut;
@@ -146,8 +148,8 @@ int decodeAllHeaders(int respac, struct streamstate *s, enum streamtype type) {
 	// BEGIN your modification HERE
         // lancement du thread gérant l'affichage (draw2SDL)
         // inserer votre code ici !!
-
-        pthread_create(&thread_theora2sdl, NULL, draw2SDL, s->serial);
+         intptr_t arg = (intptr_t)s->serial;  // Cast sûr en intptr_t
+        pthread_create(&thread_theora2sdl, NULL, draw2SDL, (void*)arg );
         // END of your modification
         assert(res == 0);
       }

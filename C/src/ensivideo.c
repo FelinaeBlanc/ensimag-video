@@ -7,6 +7,8 @@
 #include "oggstream.h"
 #include "stream_common.h"
 
+pthread_t theora2sdlthread;
+
 int main(int argc, char *argv[]) {
   int res;
 

@@ -3,6 +3,10 @@
         "*.tcc": "c",
         "stdio.h": "c",
         "shared_mutex": "c",
-        "pthread.h": "c"
+        "pthread.h": "c",
+        "ensitheora.h": "c",
+        "stream_common.h": "c",
+        "synchro.h": "c",
+        "ensivideo.h": "c"
     }
 }

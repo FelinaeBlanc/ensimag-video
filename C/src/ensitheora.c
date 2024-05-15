@@ -5,8 +5,8 @@
 #include <assert.h>
 #include <stdbool.h>
 
-
-pthread_mutex_t mutex_hashmap;
+#include "ensivideo.h"
+pthread_mutex_t mutex_hashmap = PTHREAD_MUTEX_INITIALIZER;
 
 int windowsx = 0;
 int windowsy = 0;
@@ -22,7 +22,9 @@ SDL_Rect rect = {};
 struct streamstate *theorastrstate = NULL;
 
 void *draw2SDL(void *arg) {
+
   int serial = (int)(long long int)arg;
+
   struct streamstate *s = NULL;
   SDL_Texture *texture = NULL;
 
